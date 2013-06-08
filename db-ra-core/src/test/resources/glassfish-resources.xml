@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <!-- Used by arquillian engine only in test-cases -->    
+<!--    <jdbc-connection-pool name="jdbc/db-pool" res-type="javax.sql.DataSource"
+                          datasource-classname="oracle.jdbc.pool.OracleDataSource"
+                          pool-resize-quantity="5" max-pool-size="100" steady-pool-size="0"
+                          statement-timeout-in-seconds="300" >
+        <property name="user" value="user"/>
+        <property name="password" value="pass"/>
+        <property name="serverName" value="1.2.3.4"/>
+        <property name="DatabaseName" value="teste"/>
+        <property name="url" value="jdbc:oracle:thin:@1.2.3.4:1521/test"/>
+        <property name="i18n.jdbcPool.maxWait" value="300000"/>
+    </jdbc-connection-pool>
+ 
+    <jdbc-resource jndi-name="jdbc/db" pool-name="jdbc/db-pool" />
+    
+    <custom-resource res-type="java.util.Properties" jndi-name="custom/my-simple-properties" 
+                     factory-class="org.glassfish.resources.custom.factory.PropertiesFactory">
+        <property name="timerInterval" value="100" />
+        <property name="timerTimeout" value="5000" />
+    </custom-resource>-->
+</resources>
