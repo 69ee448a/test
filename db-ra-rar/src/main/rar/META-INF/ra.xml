@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<connector xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/connector_1_5.xsd" version="1.5">
+    <description>Simply adapter for database polling</description>
+    <display-name>InboundResourceAdapter</display-name>
+    <icon></icon>
+    <vendor-name>Worms Farm Inc</vendor-name>
+    <eis-type>DB</eis-type>
+    <resourceadapter-version>1.0</resourceadapter-version>
+
+    <resourceadapter>
+        <resourceadapter-class>ru.nsk.test.db.ra.ResourceAdapterImpl</resourceadapter-class>
+        <config-property>
+            <!-- Количество потоков для мониторинга таблицы в базе данных. -->
+            <config-property-name>poolSize</config-property-name>
+            <config-property-type>java.lang.Integer</config-property-type>
+            <config-property-value>8</config-property-value>
+        </config-property>
+        <inbound-resourceadapter>
+            <messageadapter>
+                <messagelistener>
+                    <messagelistener-type>ru.nsk.test.db.ra.api.DbRaMessageListener</messagelistener-type>
+                    <activationspec>
+                        <activationspec-class>ru.nsk.test.db.ra.inbound.ActivationSpecImpl</activationspec-class>
+                        <required-config-property>
+                            <description>JNDI name for database resource</description>
+                            <config-property-name>resource</config-property-name>                            
+                        </required-config-property>
+                        <required-config-property>
+                            <description>Table name for monitoring</description>
+                            <config-property-name>table</config-property-name>
+                        </required-config-property>
+                        <required-config-property>
+                            <description>Name of group field in database table</description>
+                            <config-property-name>fieldGroup</config-property-name>
+                        </required-config-property>
+                        <required-config-property>
+                            <description>Limit for one time groups selection from table</description>
+                            <config-property-name>groupLimit</config-property-name>
+                        </required-config-property>
+                        <required-config-property>
+                            <description>Name of item field in database table</description>
+                            <config-property-name>fieldItem</config-property-name>
+                        </required-config-property>
+                        <required-config-property>
+                            <description>Name of message field in database table</description>
+                            <config-property-name>fieldMessage</config-property-name>
+                        </required-config-property>
+                    </activationspec>
+                </messagelistener>
+            </messageadapter>
+        </inbound-resourceadapter>
+    </resourceadapter>
+</connector>
