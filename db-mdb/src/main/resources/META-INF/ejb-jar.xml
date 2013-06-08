@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd">
+    <enterprise-beans>
+        <message-driven>
+            <display-name>Database table dumper</display-name>
+            <ejb-name>QueueDumper</ejb-name>
+            <ejb-class>ru.nsk.test.db.mdb.QueueDumper</ejb-class>
+            <messaging-type>ru.nsk.test.db.ra.api.DbRaMessageListener</messaging-type>
+            <activation-config>
+                <activation-config-property>
+                    <activation-config-property-name>resource</activation-config-property-name>
+                    <activation-config-property-value>jdbc/dbPoolNoXA</activation-config-property-value>
+                </activation-config-property>
+                <activation-config-property>
+                    <activation-config-property-name>table</activation-config-property-name>
+                    <activation-config-property-value>message</activation-config-property-value>
+                </activation-config-property>
+                <activation-config-property>
+                    <activation-config-property-name>fieldGroup</activation-config-property-name>
+                    <activation-config-property-value>group_id</activation-config-property-value>
+                </activation-config-property>
+                <activation-config-property>
+                    <activation-config-property-name>groupLimit</activation-config-property-name>
+                    <activation-config-property-value>3</activation-config-property-value>
+                </activation-config-property>
+                <activation-config-property>
+                    <activation-config-property-name>fieldItem</activation-config-property-name>
+                    <activation-config-property-value>item_id</activation-config-property-value>
+                </activation-config-property>
+                <activation-config-property>
+                    <activation-config-property-name>fieldMessage</activation-config-property-name>
+                    <activation-config-property-value>message</activation-config-property-value>
+                </activation-config-property>
+            </activation-config>
+            <env-entry>
+                <description>Group identificator for AUDIT command</description>
+                <env-entry-name>command.audit</env-entry-name>
+                <env-entry-type>java.lang.String</env-entry-type>
+                <env-entry-value>AUDIT</env-entry-value>
+            </env-entry>
+            <security-identity>
+                <use-caller-identity></use-caller-identity>
+            </security-identity>
+        </message-driven>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>QueueDumper</ejb-name>
+                <method-name>onMessage</method-name>
+                <method-params>
+                    <method-param>ru.nsk.test.db.ra.api.GroupMessage</method-param>
+                </method-params>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
