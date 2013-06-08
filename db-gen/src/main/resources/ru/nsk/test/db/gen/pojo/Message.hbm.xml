@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2013 4:09:32 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="ru.nsk.test.db.gen.pojo.Message" table="message" schema="public">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="sequence">
+                <param name="sequence">seq_id</param>
+            </generator>
+        </id>
+        <property name="itemId" type="java.lang.Long">
+            <column name="item_id" not-null="true" unique="true" />
+        </property>
+        <property name="groupId" type="string">
+            <column name="group_id" not-null="true" />
+        </property>
+        <property name="message" type="string">
+            <column name="message" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="testdbra" match-schema="public"/>
+  <table-filter match-name="message"/>
+  <table name="message" class="ru.nsk.test.db.gen.pojo.Message" schema="public">
+        <primary-key>             
+            <generator class="sequence">                 
+                <param name="sequence">seq_id</param>             
+            </generator>             
+            <key-column name="id" property="id" type="java.lang.Long"/>         
+        </primary-key>             
+    </table>
+</hibernate-reverse-engineering>
