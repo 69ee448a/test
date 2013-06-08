@@ -24,21 +24,10 @@
     <build>
         <pluginManagement>
             <plugins>
-<!--                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-rar-plugin</artifactId>
-                    <version>2.3</version>
-                </plugin>-->
             </plugins>
         </pluginManagement>
     </build>
     
-    <!--    <repositories>
-        <repository>
-            <id>Fungal</id>
-            <url>http://jesperpedersen.github.com/fungal/maven2</url>
-        </repository>
-    </repositories>-->
   
     <!-- POM parent dependencies -->
     <dependencies>
